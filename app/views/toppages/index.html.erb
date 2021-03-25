@@ -1,5 +1,9 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <button type="button" class="btn btn-dark">ログイン</button>
+<% if logged_in? %>
+  <h1>ログイン完了ユーザ: <%= current_user.name %></h1>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <button type="button" class="btn btn-dark"><%= link_to "ログイン", login_path %></button>
+    </div>
   </div>
-</div>
+<% end %>

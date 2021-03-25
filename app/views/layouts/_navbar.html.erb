@@ -8,10 +8,13 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">メニュー</a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item">ログイン</li>
+                        <li class="dropdown-item"><%= link_to "ログイン", login_path %></li>
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item"><%= link_to "新規登録", signup_path %></li>
-                    </ul>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><%= link_to '退会する', @user, method: :delete, data: { confirm: '本当に退会してよろしいですか？' } %></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><%= link_to "ログアウト", logout_path, method: :delete %></li>
                 </li>
             </ul>
                
