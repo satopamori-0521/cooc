@@ -18,12 +18,16 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-
+    <div class="header">
+      <%= render 'layouts/navbar' %>
+    </div>
+    
     <div class="container">
       <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
     </div>
+    
+
   </body>
 </html>

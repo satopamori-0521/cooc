@@ -1,9 +1,10 @@
 <% if logged_in? %>
   <h1>ログイン完了ユーザ: <%= current_user.name %></h1>
 <% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <button type="button" class="btn btn-dark"><%= link_to "ログイン", login_path %></button>
+  <div class="jumbotron jumbotron-extend">
+    <div class="container-fluid jumbotron-container">
+      <h1 class="site-name">Welcome To The Cooking Recipe!</h1>
+      <p>新規登録はこちら→<a class="btn btn-black" href="/signup" role="button">signup</a></p>
     </div>
   </div>
 <% end %>
