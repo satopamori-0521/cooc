@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     
     if @recipe.save
       flash[:success] = "レシピが正常に投稿されました"
-      redirect_to @recipe
+      redirect_to root_url
     else
       flash.now[:danger] = "レシピ投稿に失敗しました"
       render :new

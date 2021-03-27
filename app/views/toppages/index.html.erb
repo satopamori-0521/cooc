@@ -1,5 +1,6 @@
 <% if logged_in? %>
-  <h1>ログイン完了ユーザ: <%= current_user.name %></h1>
+  <%= render "recipes/recipes", recipes: @recipes %>
+  
 <% else %>
   <div class="jumbotron jumbotron-extend">
     <div class="container-fluid jumbotron-container">
@@ -8,3 +9,17 @@
     </div>
   </div>
 <% end %>
+
+
+
+  
+<!--<div class="row">-->
+<!--  <div class="col-sm-4">-->
+<!--    <div class="card mb-4 shadow-sm">-->
+<!--      <img class="card-img-top" src="/assets/images/main.jpg"  width="100%" height="200">-->
+<!--      <div class="card-body">-->
+<!--        <p class="card-text">これは写真の解説文つきのカードです。自然に説明を加える事ができます。しかしこの文章は少し長いかもしれません。</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
