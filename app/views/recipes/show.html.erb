@@ -3,58 +3,48 @@
 
 
 <div class="row">
-        <div class="offset-2 col-md-4">
-            <div class="mb-4 shadow-sm">
-                タイトル
-            </div>  
-        </div>
-        <div class="col-md-6">
-            <div class="mb-4 shadow-sm">
-                <%= @recipe.title %>
-            </div>
-        </div>
-        
-        <div class="offset-2 col-md-4">
-            <div class="mb-4 shadow-sm">
-                写真
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-4 shadow-sm">
-                <%= @recipe.image %>
-            </div>
-        </div>
-        
-        <div class="offset-2 col-md-4">
-            <div class="mb-4 shadow-sm">
+    <div class="offset-4 col-md-4">
+        <div class="mb-4">
+            タイトル
+            <p><%= @recipe.title %></p>
+        </div>  
+    </div>
+</div> 
+
+<div class="row">
+    <div class="offset-4 col-md-4">
+        <div class="mb-4">
+            写真
+            <p><%= @recipe.image %></p>
+        </div>  
+    </div>
+</div> 
+
+
+<div class="row">
+    <div class="offset-4 col-md-4">
+        <div class="mb-4">
                 レシピの説明
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-4 shadow-sm">
-                <%= @recipe.content %>
-            </div>
-        </div>
-        
-        <div class="offset-2 col-md-4">
-            <div class="mb-4 shadow-sm">
-                材料
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-4 shadow-sm">
-                <%= @recipe.materials %>
-            </div>
-        </div>
-        
-         <div class="offset-2 col-md-4">
-            <div class="mb-4 shadow-sm">
-                作り方
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-4 shadow-sm">
-                <%= @recipe.method %>
-            </div>
-        </div>
+            <p><%= @recipe.content %></p>
+        </div>  
+    </div>
 </div>
+
+<div class="row">
+    <div class="offset-4 col-md-4">
+        <div class="mb-4">
+                材料
+            <p><%= @recipe.materials %></p>
+        </div>  
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-4 col-md-4">
+        <div class="mb-4">
+                作り方
+            <p><%= @recipe.method %></p>
+        </div>  
+    </div>
+</div>
+        
