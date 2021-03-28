@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  before_action :require_user_logged_in, only: [:show, :likes]
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
+    @recipes = @user.recipes.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -28,6 +29,11 @@ class UsersController < ApplicationController
     
     flash[:success] = "退会しました"
     redirect_to root_url
+  end
+  
+  def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes.page(params[:page])
   end
   
   private

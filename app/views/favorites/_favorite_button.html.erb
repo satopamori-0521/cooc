@@ -1,0 +1,13 @@
+<% unless current_user == user %>
+  <% if current_user.like?(user) %>
+    <%= form_with(model: current_user.favorites.find_by(recipe_id: user.id), local: true, method: :delete) do |f| %>
+      <%= hidden_field_tag :recipe_id, user.id %>
+      <%= f.submit '解除', class: 'btn btn-danger btn-sm' %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+      <%= hidden_field_tag :recipe_id, user.id %>
+      <%= f.submit 'お気に入り', class: 'btn btn-success btn-sm' %>
+    <% end %>
+  <% end %>
+<% end %>

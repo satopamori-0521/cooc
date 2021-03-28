@@ -4,11 +4,21 @@
         <div class="card mb-4 shadow-sm">
           <img class="card-img-top" src="/assets/images/main.jpg"  width="100%" height="200">
           <div class="card-body">
-            <h1><%= recipe.title %></h1>
+            <h5 class="cord-title"><%= recipe.title %></h1>
             <p class="card-text"><%= recipe.content %></p>
+            <%= link_to '詳細', recipe_path(recipe), class: "btn btn-primary btn-sm stretched-link" %>
+            <hr>
+            <div>
+                <% if current_user == recipe.user %>
+                    <%= link_to "Delete", recipe, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                    <%= link_to '編集', edit_recipe_path(recipe), class: "btn btn-warning btn-sm" %>
+                <% end %>
+            </div>
           </div>
+          <%= render 'favorites/favorite_button', user: recipe %>
         </div>
       </div>
   <% end %>
   <%= paginate recipes %>
 </div>
+            

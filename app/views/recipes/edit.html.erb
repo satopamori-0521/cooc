@@ -1,2 +1,38 @@
-<h1>Recipes#edit</h1>
-<p>Find me in app/views/recipes/edit.html.erb</p>
+<h1 class="text-center">レシピ編集</h1>
+
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+    <%= form_with(model: @recipe, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :title, 'タイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :image, '完成品' %>
+        <%= f.text_field :image %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, 'レシピについて説明' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :materials, '材料' %>
+        <%= f.text_area :materials, class: 'form-control', rows: 5 %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :method, '作り方' %>
+        <%= f.text_area :method, class: 'form-control', rows: 20%>
+      </div>
+
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+    <% end %>
+        
+    </form>
+    
+</div>

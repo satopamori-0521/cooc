@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:destroy, :edit]
   
   def show
     @recipe = Recipe.find(params[:id])
@@ -20,17 +21,40 @@ class RecipesController < ApplicationController
       render :new
     end
   end
-
-
+  
   def edit
+     @recipe = Recipe.find(params[:id])
+  end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    
+    if @recipe.update(recipe_params)
+      flash[:success] = "正常に更新されました"
+      redirect_to root_url
+    else
+      flash.now[:danger] = "更新されませんでした"
+      render :edit
+    end
   end
 
+
   def destroy
+    @recipe.destroy
+    flash[:success] = "メッセージを削除しました"
+    redirect_back(fallback_location: root_path)
   end
   
   private
   
   def recipe_params
     params.require(:recipe).permit(:title, :image, :content, :materials, :method)
+  end
+  
+  def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    unless @recipe
+      redirect_to root_url
+    end
   end
 end
