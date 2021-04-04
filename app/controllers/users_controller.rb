@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id]) 
-    @recipes = @user.recipes.order(id: :desc).page(params[:page])
+    @recipes = @user.recipes.order(id: :desc).page(params[:page]).per(9)
   end
 
   def new
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   
   def likes
     @user = User.find(params[:id])
-    @likes = @user.likes.page(params[:page])
+    @likes = @user.likes.page(params[:page]).per(9)
   end
   
   private

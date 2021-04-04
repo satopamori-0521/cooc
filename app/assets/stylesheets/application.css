@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    height: 80vh;
+    min-height: 300px;
+    background: url(/assets/top.jpg) no-repeat center center;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
