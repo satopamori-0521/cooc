@@ -1,4 +1,5 @@
 <% if logged_in? %>
+  <h1 class="text-center">みんなのレシピ一覧</h1>
   <%= render "recipes/recipes", recipes: @recipes %>
   
 <% else %>
