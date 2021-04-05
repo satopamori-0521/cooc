@@ -11,15 +11,16 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
-    
-    if @recipe.save
-      flash[:success] = "レシピが正常に投稿されました"
-      redirect_to root_url
-    else
-      flash.now[:danger] = "レシピ投稿に失敗しました"
-      render :new
-    end
+      @recipe = current_user.recipes.build(recipe_params)
+      
+      if @recipe.save
+        flash[:success] = "レシピが正常に投稿されました"
+        redirect_to root_url
+      else
+        flash.now[:danger] = "レシピ投稿に失敗しました"
+        render :new
+      end
+
   end
   
   def edit
@@ -41,8 +42,8 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    flash[:success] = "メッセージを削除しました"
-    redirect_back(fallback_location: root_path)
+    flash[:success] = "レシピを削除しました"
+    redirect_back(fallback_location: root_url)
   end
   
   private
@@ -50,6 +51,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :image, :content, :materials, :method)
   end
+  
   
   def correct_user
     @recipe = current_user.recipes.find_by(id: params[:id])
