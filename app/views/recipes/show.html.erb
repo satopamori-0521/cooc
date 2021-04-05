@@ -16,7 +16,7 @@
         <div class="mb-4">
             <h3>写真</h3>
             <p><%#= @recipe.image %></p>
-            <%= image_tag @recipe.image_url if @recipe.image.present? %>
+            <%= image_tag @recipe.image_url, class: "image", width: "100%" if @recipe.image.present? %>
         </div>  
     </div>
 </div> 
